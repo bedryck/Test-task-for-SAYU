@@ -1,8 +1,114 @@
 .App {
+  --main-bg-color: #121212;
   text-align: center;
-  background-color: #282c34;
+  background-color: var(--main-bg-color);
   height: 100%;
+  width: 100%;
+  --tile-color: #1f1f1f;
+  --main-font-color: #cacaca;
+  --font-color: #a1a1a1;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header{
+  height: 80px;
+  width: 100%;
+  background-color: var(--tile-color);
+  display: flex;
+}
+
+.header-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+}
+
+.header-title{
+  color: var(--main-font-color);
+  font-weight: 700;
+}
+
+.wrapper{
+  flex: 1;
+  display: flex;
+	flex-direction: column;
+}
+
+.App-Content{
+  flex: 1 0 auto;
+}
+
+.App-footer{
+  flex: 0 0 auto;
+  padding: 20px;
+}
+
+.footer-title{
+  color: var(--font-color);
+
+}
+
+.footer-container{
+  display: flex;
+}
+
+.footer-title{
+  font-size: 10px;
+}
+
+.clocks-container{
+  flex-wrap: wrap;
   width: 100%;
 }
 
+.clock{
+  background-color: var(--tile-color);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  min-width: 300px;
+}
 
+.faceWatch span{
+  color: var(--main-font-color);
+  font-size: 2em;
+}
+
+.city span{
+  color: #bb86fc;
+
+}
+.clocks-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.App-Content{
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.time-picker p {
+  color: var(--font-color);
+
+}
+
+.time-picker input{
+  border: none;
+  border-radius: 4px;
+  background-color: var(--tile-color);
+  height: 40px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  padding: 0 20px;
+  color: var(--main-font-color);
+
+}
