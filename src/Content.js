@@ -7,7 +7,7 @@ const Content = () => {
     const changedDate = time ? new Date(date + time).getTime() : Date.now(); // transform input
 
     const _requestToBack = () => {
-        new Promise((resolve, reject) => {
+        new Promise((resolve) => {
             setTimeout(() => {
                 resolve();
             }, 1000);
