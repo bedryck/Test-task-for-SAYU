@@ -112,3 +112,19 @@
   color: var(--main-font-color);
 
 }
+
+.time-picker button{
+  border: none;
+    border-radius: 4px;
+    background-color: var(--tile-color);
+    height: 40px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    padding: 0 20px;
+    color: var(--main-font-color);
+    margin-top: 10px;
+    cursor: pointer;
+}

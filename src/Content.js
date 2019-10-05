@@ -6,7 +6,19 @@ const Content = () => {
     const [time, setTime] = useState(''); // input time
     const changedDate = time ? new Date(date + time).getTime() : Date.now(); // transform input
 
+    const _requestToBack = () => {
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000);
+        })
+            .then(() => window._notification.info('Response from backend', 3))
+            .catch((error) => console.error(error));
+    };
+
+
     const _onSetTime = (e) => {
+        _requestToBack();
         setTime(e.target.value);
         localStorage.setItem('time', e.target.value);
     };
@@ -26,6 +38,9 @@ const Content = () => {
             <div className="time-picker">
                 <p>Select time</p>
                 <input type="time" step="1" value={time} onChange={_onSetTime} />
+                <button type="button" onClick={() => { localStorage.setItem('time', ''); setTime(''); }}>
+                    Current Time
+                </button>
             </div>
         </div>
     );
