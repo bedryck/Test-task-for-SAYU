@@ -2,30 +2,35 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const Clock = ({ city, time }) => {
-    let INITIAL_TIME = time;
     const [stateSeconds, setSeconds] = useState('00');
     const [stateMinutes, setMinutes] = useState('00');
     const [stateHoures, setHoures] = useState('00');
+    const [timer, setTimer] = useState();
 
-    const clock = () => setInterval(() => {
-        const date = new Date(INITIAL_TIME);
-
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
-        let seconds = date.getSeconds();
-        hours = (hours < 10) ? `0${hours}` : hours;
-        minutes = (minutes < 10) ? `0${minutes}` : minutes;
-        seconds = (seconds < 10) ? `0${seconds}` : seconds;
-        setHoures(hours);
-        setMinutes(minutes);
-        setSeconds(seconds);
-        INITIAL_TIME += 1000;
-        console.log('clock');
-    }, 1000);
 
     useEffect(() => {
-        clock();
-    }, []);
+        // INITIAL_TIME for increment 1000
+        let INITIAL_TIME = time;
+        // update function for clock
+        const update = () => {
+            const date = new Date(INITIAL_TIME);
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            hours = (hours < 10) ? `0${hours}` : hours;
+            minutes = (minutes < 10) ? `0${minutes}` : minutes;
+            seconds = (seconds < 10) ? `0${seconds}` : seconds;
+            setHoures(hours);
+            setMinutes(minutes);
+            setSeconds(seconds);
+            INITIAL_TIME += 1000;
+        };
+
+        clearInterval(timer);
+        setTimer(setInterval(update, 1000));
+        update();
+    }, [time]);
+
 
     return (
         <div className="clock">
